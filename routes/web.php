@@ -10,6 +10,9 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CarsController;
+
 
 Route::get('/', function () {
     $age = 15;
@@ -20,3 +23,6 @@ Route::get('/', function () {
 Route::get('/about', function () {
     return view('about');
 });
+
+Route::get('/cars', [CarsController::class, 'index']);
+Route::get('/cars/{car}', [CarsController::class, 'show'])->name('car');
